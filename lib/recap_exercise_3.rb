@@ -67,3 +67,24 @@ def vigenere_cipher(str, key)
     end
     new_str_arr.join
 end
+
+def vowel_rotate(str)
+    #cOmpUtEr [ O, U, E]
+    #cEmpOtUr [ E, O, U]
+    # Find vowel idx 
+    split_str = str.split("")
+    vowels = ["a","e","i","o","u"]
+    str_vowels = []
+    str_vowels_idx = []
+    split_str.each_with_index do |char, idx| 
+       if vowels.any?(char)  
+        str_vowels << char
+        str_vowels_idx << idx
+       end  
+    end
+    rotated_vowels = str_vowels.rotate(-1)
+    str_vowels_idx.each_with_index do | vowel_idx, loop_idx |
+        split_str[vowel_idx] = rotated_vowels[loop_idx]
+    end
+    split_str.join
+end

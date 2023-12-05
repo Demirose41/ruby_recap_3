@@ -82,6 +82,20 @@ describe "vigenere_cipher" do
         expect(vigenere_cipher("zebra", [3, 0])).to eq("ceerd")
         expect(vigenere_cipher("yawn", [5, 1])).to eq("dbbo")
     end 
+end
 
+describe "vowel_rotate" do 
+
+    it "should accept a str as an arg" do 
+        expect{vowel_rotate("computer")}.to_not raise_error
+    end
+
+    it "should return the string where every vowel is replaced wit the vowel that appears before it sequentially" do
+        expect(vowel_rotate('computer')).to eq("cempotur")
+        expect(vowel_rotate('oranges')).to eq('erongas')
+        expect(vowel_rotate('headphones')).to eq('heedphanos')
+        expect(vowel_rotate('bootcamp')).to eq('baotcomp')
+        expect(vowel_rotate('awesome')).to eq('ewasemo')
+    end
 
 end
