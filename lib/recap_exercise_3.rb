@@ -102,9 +102,18 @@ class String
     end
     
     def map!(&prc)
+        return if !prc
         self.each_char.with_index do |char, i| 
             self[i] = prc.call(char, i)
         end
     end
 
+end
+
+def multiply(a, b)
+    return 0 if a == 0 || b == 0
+    return a if b == 1
+    return a.abs + multiply(a.abs, b.abs - 1) if a < 0 && b < 0
+    -(a.abs + multiply(a.abs, b.abs - 1)) if a < 0 || b < 0
+    a + multiply(a, b - 1) if a > 0 && b > 0
 end

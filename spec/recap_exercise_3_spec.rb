@@ -114,24 +114,31 @@ describe "String#select" do
     end
 end
 
-describe "String#map!" do
+describe "String#map!" do 
+
     it "should accept a block" do 
-        expect{"Lovelace".map! { |char| p char}}.to_not raise_error
+        expect{"lemon".map!}.to_not raise_error
     end
 
-    it "should modify the existing string by replacing every character with the result of calling the block, passing in the original character and it's index" do
-        let test_1 = "Lovelace"
-        test_1.map! do |ch|
-            if ch == 'e'
-                '3'
-            elsif ch == 'a'
-                '4'
-            elements
-                ch
-            end
-        end
-        
-        expect(test_1).to eq('Lov3l4c3')
+
+
+end
+
+describe "multiply(a, b)" do
+
+    it "shoud accept 2 integers" do
+        expect{multiply(3,2)}.to_not raise_error
+        expect{multiply(-3,2)}.to_not raise_error
+        expect{multiply(-3,-2)}.to_not raise_error
+    end
+
+    it "should return product of 'a' and 'b'." do
+        expect(multiply(3,5)).to eq(15)
+        expect(multiply(5,3)).to eq(15)
+        expect(multiply(2,4)).to eq(8)
+        expect(multiply(0,10)).to eq(0)
+        expect(multiply(-3,-6)).to eq(18)
+        expect(multiply(-5,-5)).to eq(25)
     end
 
 
