@@ -48,3 +48,22 @@ def prime?(num)
     end
     true
 end
+
+def vigenere_cipher(str, key)
+    alph = Hash.new 
+    key_length = key.length
+    key_idx = 0  
+    ("a".."z").each_with_index { |char, idx| alph[char] = idx + 1 }
+
+    split_str = str.downcase.split("")
+    new_str_arr = []
+    split_str.each do |char|
+        char_idx = alph[char]
+        temp_idx = char_idx + key[key_idx]
+        temp_idx < 27 ? new_idx = temp_idx : new_idx = temp_idx - 26
+        new_str_arr << alph.key(new_idx)
+        key_idx += 1 
+        key_idx = 0 if key_idx >= key_length
+    end
+    new_str_arr.join
+end

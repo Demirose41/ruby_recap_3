@@ -61,11 +61,27 @@ describe "bi_prime?" do
     end
 
     it "should return a boolean indicating whether or not the number is a bi-prime." do
-        # expect(bi_prime?(14)).to eq(true)
+        expect(bi_prime?(14)).to eq(true)
         expect(bi_prime?(22)).to eq(true)
         expect(bi_prime?(25)).to eq(true)
         expect(bi_prime?(94)).to eq(true)
         expect(bi_prime?(24)).to eq(false)
         expect(bi_prime?(64)).to eq(false)
     end
+end
+
+describe "vigenere_cipher" do 
+    it 'should accepts a string and a key-sequence as arguements' do 
+        expect{vigenere_cipher('WangDangDoodle', [1])}.to_not raise_error
+    end
+
+    it "should take a word and encrpyt it by offsetting each letter in the word by a fixed key number" do
+        expect(vigenere_cipher("toerrishuman", [1])).to eq("upfssjtivnbo")
+        expect(vigenere_cipher("toerrishuman", [1, 2])).to eq("uqftsktjvobp")
+        expect(vigenere_cipher("toerrishuman", [1, 2, 3])).to eq("uqhstltjxncq")
+        expect(vigenere_cipher("zebra", [3, 0])).to eq("ceerd")
+        expect(vigenere_cipher("yawn", [5, 1])).to eq("dbbo")
+    end 
+
+
 end
