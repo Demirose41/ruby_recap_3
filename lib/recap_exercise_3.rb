@@ -8,3 +8,10 @@ def no_dupes?(arr)
     end 
     dupe_regastry.select { | key, val| val == 1 }.keys
 end
+
+def no_consecutive_repeats?(arr)
+    (1...arr.length - 1).each do |idx| 
+        return false if arr[idx] == arr[idx - 1]
+    end 
+    return true
+end
