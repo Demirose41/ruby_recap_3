@@ -99,3 +99,19 @@ describe "vowel_rotate" do
     end
 
 end
+
+describe "String#select" do 
+    it "should accept a block " do 
+        expect{"app acadamy".select { |ch| !"aeiou".include?(ch) }}.to_not raise_error
+    end
+
+    it "should return a new string containing characters of the original that return true when passed into the block" do
+        expect("app acadamy".select { |ch| !"aeiou".include?(ch) }).to eq("pp cdmy")
+        expect("HELLOworld".select { |ch| ch == ch.upcase }).to eq("HELLO")
+    end
+
+    it "should return the empty string if no block is passed" do 
+        expect("HELLOworld".select).to eq ("")
+    end
+
+end

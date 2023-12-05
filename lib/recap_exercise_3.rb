@@ -88,3 +88,18 @@ def vowel_rotate(str)
     end
     split_str.join
 end
+
+
+class String 
+    
+    def select(&prc) 
+        prc ||= Proc.new { return ""}
+        new_str = ""
+        self.length.times do |i|
+            new_str << self[i] if prc.call(self[i])
+        end 
+        new_str
+    end
+    
+
+end
