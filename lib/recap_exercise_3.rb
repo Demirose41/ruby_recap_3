@@ -29,3 +29,22 @@ def longest_streak(str)
     end
     count.max[0] * count.max[1] 
 end
+
+
+def bi_prime?(num)
+    (2...num).each do |x| 
+        (2...num).each do |y|
+            return true if x * y == num && prime?(x) && prime?(y)
+            next if x * y > num
+        end
+    end
+    false
+end 
+
+def prime?(num)
+    temp = 0 
+    (2..num/2).each do |idx| 
+        return false if num % idx == 0  
+    end
+    true
+end

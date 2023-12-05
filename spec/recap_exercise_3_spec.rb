@@ -52,4 +52,20 @@ describe "longest_streak(str)" do
         expect(longest_streak('aaabbb')).to eq('bbb')
         expect(longest_streak('abc')).to eq('c')
     end
+
+end
+
+describe "bi_prime?" do 
+    it 'should accept a number as an arg' do
+        expect{bi_prime?(14)}.to_not raise_error
+    end
+
+    it "should return a boolean indicating whether or not the number is a bi-prime." do
+        # expect(bi_prime?(14)).to eq(true)
+        expect(bi_prime?(22)).to eq(true)
+        expect(bi_prime?(25)).to eq(true)
+        expect(bi_prime?(94)).to eq(true)
+        expect(bi_prime?(24)).to eq(false)
+        expect(bi_prime?(64)).to eq(false)
+    end
 end
