@@ -21,3 +21,11 @@ def char_indices(str)
     str.split("").each_with_index {|char, idx| indices_hash[char] << idx }
     indices_hash
 end
+
+def longest_streak(str) 
+    count = Hash.new { |h,k| h[k] = 0 }
+    str.split("").each do |char| 
+        count[char] += 1 
+    end
+    count.max[0] * count.max[1] 
+end
