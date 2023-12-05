@@ -97,7 +97,6 @@ describe "vowel_rotate" do
         expect(vowel_rotate('bootcamp')).to eq('baotcomp')
         expect(vowel_rotate('awesome')).to eq('ewasemo')
     end
-
 end
 
 describe "String#select" do 
@@ -113,5 +112,27 @@ describe "String#select" do
     it "should return the empty string if no block is passed" do 
         expect("HELLOworld".select).to eq ("")
     end
+end
+
+describe "String#map!" do
+    it "should accept a block" do 
+        expect{"Lovelace".map! { |char| p char}}.to_not raise_error
+    end
+
+    it "should modify the existing string by replacing every character with the result of calling the block, passing in the original character and it's index" do
+        let test_1 = "Lovelace"
+        test_1.map! do |ch|
+            if ch == 'e'
+                '3'
+            elsif ch == 'a'
+                '4'
+            elements
+                ch
+            end
+        end
+        
+        expect(test_1).to eq('Lov3l4c3')
+    end
+
 
 end

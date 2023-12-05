@@ -101,5 +101,10 @@ class String
         new_str
     end
     
+    def map!(&prc)
+        self.each_char.with_index do |char, i| 
+            self[i] = prc.call(char, i)
+        end
+    end
 
 end
