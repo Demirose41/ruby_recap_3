@@ -15,3 +15,9 @@ def no_consecutive_repeats?(arr)
     end 
     return true
 end
+
+def char_indices(str) 
+    indices_hash = Hash.new  {|h, k| h[k] = []}
+    str.split("").each_with_index {|char, idx| indices_hash[char] << idx }
+    indices_hash
+end
