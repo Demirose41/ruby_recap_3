@@ -117,3 +117,14 @@ def multiply(a, b)
     -(a.abs + multiply(a.abs, b.abs - 1)) if a < 0 || b < 0
     a + multiply(a, b - 1) if a > 0 && b > 0
 end
+
+def lucas_sequence(length)
+    return [] if length == 0
+    return [2] if length == 1
+    return [2,1] if length == 2
+
+    seq = lucas_sequence(length - 1)
+    next_el = seq[-1] + seq[-2]
+    seq << next_el
+    seq
+end
